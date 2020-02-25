@@ -1,4 +1,114 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
+
+html {
+  font-size: 62.5%;
+  background-color: cadetblue;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+//--------------------------------------------------/
+// VARIABLES --------------------------------------/
+//------------------------------------------------/
+:root {
+  --clr-primary: #3B3F48; 
+  --clr-secondary: #7EDDFD; 
+}
+
+//--------------------------------------------------/
+// TYPOGRAPHY -------------------------------------/
+//------------------------------------------------/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: red;
+}
+
+ul {
+  list-style: none;
+}
+
+.heading-primary {
+  color: #fff;
+  opacity: .6;
+}
+
+.heading-primary.active {
+  opacity: 1;
+}
+
+.heading-secondary {
+  color: var(--clr-secondary);
+  font-size: 1.3rem;
+}
+
+
+//--------------------------------------------------/
+// HOME -------------------------------------------/
+//------------------------------------------------/
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: var(--clr-primary);
+  width: 80%;
+  height: 80%;
+  padding: 4rem;
+}
+
+// NAVBAR //
+.navbar {
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  
+  &__item:nth-child(2) {
+    display: flex;
+
+    & > a:nth-child(1) {
+      margin-right: 5rem;
+    }
+  }
+}
+
+// INPUT TASK //
+.input-task {
+  width: 100%;
+  margin: 2.5rem 0;
+
+  &__input {
+    height: 3.5rem;
+    width: 45%;
+    border-radius: 5px;
+    border: none;
+    padding: 0 1rem;
+    outline: none;
+  }
+
+  &__btn {
+    height: 3.5rem;
+    border-radius: 5px;
+    padding: 0 1rem;
+    border: none;
+    background-color: var(--clr-secondary);
+    color: #fff;
+    font-weight: bold;
+    margin-left: .5rem;
+    cursor: pointer;
+  }
+}
+
+// TASKS //
