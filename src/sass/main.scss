@@ -38,17 +38,22 @@ ul {
 }
 
 .heading-primary {
-  color: #fff;
-  opacity: .6;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all .5s;
+
+  &:hover {
+    color: rgba(255, 255, 255, 1);
+  }
 }
 
-.heading-primary.active {
-  opacity: 1;
+.active {
+  color: rgba(255, 255, 255, 1);
 }
 
 .heading-secondary {
   color: var(--clr-secondary);
   font-size: 1.3rem;
+  padding-top: .5rem;
 }
 
 
@@ -64,6 +69,7 @@ ul {
   width: 80%;
   height: 80%;
   padding: 4rem;
+  outline: 1rem solid var(--clr-secondary);
 }
 
 // NAVBAR //
@@ -71,8 +77,8 @@ ul {
 
   &__list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    
   }
   
   &__item:nth-child(2) {
@@ -112,3 +118,34 @@ ul {
 }
 
 // TASKS //
+.tasks {
+  width: 100%;
+
+  & i {
+    color: rgba(255, 255, 255, 0.5);
+    transition: all .5s;
+
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  
+  .left {
+    display: flex;
+  
+    & > a {
+      margin-right: 1.5rem;
+    }
+  }
+}
+
+
