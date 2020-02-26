@@ -5,6 +5,8 @@ var btnAddTask = document.querySelector('#btnAddTask');
 let completeTasks = document.querySelector('#completeTasks');
 let incompleteTasks = document.querySelector('#incompleteTasks');
 
+let activities = document.querySelector('.activities-days');
+
 var toDoUl = document.querySelector(".todo-list");
 var completeUl =  document.querySelector(".complete-list");
 
@@ -31,6 +33,8 @@ btnAddTask.addEventListener('click', function() {
   aLeft.id = 'btnComplete';
   aLeft.onclick = function() { 
     completeUl.appendChild(this.parentElement.parentElement);
+    indexTasks--;
+    activities.textContent = indexTasks;
    };
 
   iLeft.classList.add('far');
@@ -44,6 +48,8 @@ btnAddTask.addEventListener('click', function() {
   aRight.id = 'btnDelete';
   aRight.onclick = function() { 
     this.parentElement.parentElement.remove();
+    indexTasks--;
+    activities.textContent = indexTasks;
    };
 
   iRight.classList.add('fas');
@@ -62,6 +68,7 @@ btnAddTask.addEventListener('click', function() {
   toDoUl.appendChild(listItem);
 
   indexTasks++;
+  activities.textContent = indexTasks;
 }) 
 
 
@@ -70,13 +77,23 @@ completeUl.style.display = 'none';
 completeTasks.addEventListener('click', function() {
   toDoUl.style.display = 'none';
   completeUl.style.display = 'block';
+  
+  document.getElementById('incomplete').classList.add('active');
+  document.getElementById('complete').classList.remove('active');
+
 })
 
 // Incomplete tasks Page
 incompleteTasks.addEventListener('click', function() {
   toDoUl.style.display = 'block';
   completeUl.style.display = 'none';
+  incompleteTasks.classList.add('active');
+
+  document.getElementById('complete').classList.add('active');
+  document.getElementById('incomplete').classList.remove('active');
 })
+
+
 
 
 
