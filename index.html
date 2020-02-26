@@ -9,8 +9,15 @@
   <script src="https://kit.fontawesome.com/6376c03a82.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  
+  <!--<li value="0">
+    <input type="checkbox" value="0" class="chk">
+    <label>Task 1</label>
+    <button value="0" id="btnDelete">Delete</button>
+  </li>-->
+
   <div class="container"> 
-    
+  
     <!--NAVBAR-->
     <nav class="navbar">
       <ul class="navbar__list">
@@ -28,25 +35,30 @@
 
     <!--INPUT TASK-->
     <div class="input-task">
-      <input class="input-task__input" type="text" placeholder="Enter a task">
-      <button class="input-task__btn">Add Task</button>
+      <input class="input-task__input" id="inputNewTask" type="text" placeholder="Enter a task">
+      <button class="input-task__btn" id="btnAddTask">Add Task</button>
     </div>
 
     <!--TASKS-->
-    <div class="tasks">
+    <ul class="tasks todo-list">
 
-      <div class="task">
+      <li class="task">
         <div class="left">
           <a href="#" id="complete"><i class="far fa-check-circle"></i></a>
-          <p class="heading-primary">Client meeting</p>
+          <p class="heading-primary">Cdivent meeting</p>
         </div>
 
         <div class="right">
-          <a href="#"><i class="fas fa-trash-alt"></i></a>
+          <a href="#" id="btnDelete"><i class="fas fa-trash-alt"></i></a>
         </div>
-      </div>
+      </li>
+
       
-    </div>
+    </ul>
+    
+    <ul class="task complete-list" style="display: none;">
+
+    </ul>
 
   </div> <!-- / CONTAINER -->
 
