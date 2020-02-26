@@ -2,49 +2,81 @@
 var inputNewTask = document.querySelector('#inputNewTask');
 var btnAddTask = document.querySelector('#btnAddTask');
 
-var toDoUl = document.querySelector(".todo-list ul");
-var completeUl =  document.querySelector(".complete-list ul");
+let completeTasks = document.querySelector('#completeTasks');
+let incompleteTasks = document.querySelector('#incompleteTasks');
 
+var toDoUl = document.querySelector(".todo-list");
+var completeUl =  document.querySelector(".complete-list");
 
-let tasks = [];
 let indexTasks = 0;
 
 btnAddTask.addEventListener('click', function() {
-  var listItem = document.createElement("li"); //<li>
-  var checkBox = document.createElement("input"); //checkbox
-  var label = document.createElement("label"); // <label>
-  let btnRemove = document.createElement('button') // <button>
+  var listItem = document.createElement("li");
+
+  var left = document.createElement("div");
+  var aLeft = document.createElement("a");
+  let iLeft = document.createElement('i');
+  let pLeft = document.createElement('p');
+  
+  let right = document.createElement('div');
+  var aRight = document.createElement("a");
+  let iRight = document.createElement('i');
+
   
   listItem.value = indexTasks;
-  
-  label.innerText = inputNewTask.value;
-  
-  checkBox.type = "checkbox";
-  checkBox.value = indexTasks;
-  checkBox.classList.add("chk");
-  
-  btnRemove.textContent = 'Delete';
-  btnRemove.value = indexTasks;
-  btnRemove.id = 'btnDelete';
-  btnRemove.onclick = function() { 
-    // of todolist to completelist console.log(completeUl.appendChild(this.parentElement));
-    // remove this.parentElement.remove();
+  listItem.classList.add('task');
+
+  left.classList.add('left');
+
+  aLeft.id = 'btnComplete';
+  aLeft.onclick = function() { 
+    completeUl.appendChild(this.parentElement.parentElement);
    };
+
+  iLeft.classList.add('far');
+  iLeft.classList.add('fa-check-circle');
+
+  pLeft.classList.add('heading-primary');
+  pLeft.textContent = inputNewTask.value;
+
+  right.classList.add('right');
   
-  listItem.appendChild(checkBox);
-  listItem.appendChild(label);
-  listItem.appendChild(btnRemove);
-  
+  aRight.id = 'btnDelete';
+  aRight.onclick = function() { 
+    this.parentElement.parentElement.remove();
+   };
+
+  iRight.classList.add('fas');
+  iRight.classList.add('fa-trash-alt');
+
+  listItem.appendChild(left);
+  listItem.appendChild(right);
+
+  left.appendChild(aLeft);
+  aLeft.appendChild(iLeft);
+  left.appendChild(pLeft);
+
+  right.appendChild(aRight);
+  aRight.appendChild(iRight);
+
   toDoUl.appendChild(listItem);
-  
-  tasks.push(listItem);
+
   indexTasks++;
-  
-  console.log(tasks);
-  console.log(listItem);
+}) 
+
+
+// Complete tasks Page
+completeUl.style.display = 'none';
+completeTasks.addEventListener('click', function() {
+  toDoUl.style.display = 'none';
+  completeUl.style.display = 'block';
 })
 
-
+// Incomplete tasks Page
+incompleteTasks.addEventListener('click', function() {
+  toDoUl.style.display = 'block';
+  completeUl.style.display = 'none';
+})
 
 
 
