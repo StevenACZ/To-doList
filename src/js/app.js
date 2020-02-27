@@ -1,40 +1,34 @@
 //SELECT ELEMENTS AND ASSIGN THEM TO VARS
-var inputNewTask = document.querySelector('#inputNewTask');
-var btnAddTask = document.querySelector('#btnAddTask');
+let inputNewTask = document.querySelector('#inputNewTask');
+let btnAddTask = document.querySelector('#btnAddTask');
 
 let completeTasks = document.querySelector('#completeTasks');
 let incompleteTasks = document.querySelector('#incompleteTasks');
 
-let activities = document.querySelector('.activities-days');
-
-var toDoUl = document.querySelector(".todo-list");
-var completeUl =  document.querySelector(".complete-list");
-
-let indexTasks = 0;
+let toDoUl = document.querySelector(".todo-list");
+let completeUl =  document.querySelector(".complete-list");
 
 btnAddTask.addEventListener('click', function() {
-  var listItem = document.createElement("li");
+  let listItem = document.createElement("li");
 
-  var left = document.createElement("div");
-  var aLeft = document.createElement("a");
+  let left = document.createElement("div");
+  let aLeft = document.createElement("a");
   let iLeft = document.createElement('i');
   let pLeft = document.createElement('p');
   
   let right = document.createElement('div');
-  var aRight = document.createElement("a");
+  let aRight = document.createElement("a");
   let iRight = document.createElement('i');
 
   
-  listItem.value = indexTasks;
   listItem.classList.add('task');
 
   left.classList.add('left');
 
+  // BUTTON COMPLETE TASK
   aLeft.id = 'btnComplete';
   aLeft.onclick = function() { 
     completeUl.appendChild(this.parentElement.parentElement);
-    indexTasks--;
-    activities.textContent = indexTasks;
    };
 
   iLeft.classList.add('far');
@@ -45,11 +39,10 @@ btnAddTask.addEventListener('click', function() {
 
   right.classList.add('right');
   
+  // BUTTON DELETE TASK
   aRight.id = 'btnDelete';
   aRight.onclick = function() { 
     this.parentElement.parentElement.remove();
-    indexTasks--;
-    activities.textContent = indexTasks;
    };
 
   iRight.classList.add('fas');
@@ -66,9 +59,6 @@ btnAddTask.addEventListener('click', function() {
   aRight.appendChild(iRight);
 
   toDoUl.appendChild(listItem);
-
-  indexTasks++;
-  activities.textContent = indexTasks;
 }) 
 
 
@@ -77,10 +67,9 @@ completeUl.style.display = 'none';
 completeTasks.addEventListener('click', function() {
   toDoUl.style.display = 'none';
   completeUl.style.display = 'block';
-  
+
   document.getElementById('incomplete').classList.add('active');
   document.getElementById('complete').classList.remove('active');
-
 })
 
 // Incomplete tasks Page
